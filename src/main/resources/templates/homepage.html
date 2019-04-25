@@ -1,9 +1,20 @@
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>  -->
+<link rel="stylesheet" th:href="@{/resources/css/lStyle.css}">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <title th:text="#{label.pages.home.title}">home</title>
 </head>
 <body>
+
+<th:block th:include="/_header"></th:block>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -14,6 +25,7 @@
       </ul>
     </div>
 </nav>
+
 
     <div class="container">
 	    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.user.message}">user</div>
@@ -27,6 +39,17 @@
 	    <a th:href="@{/loggedUsers}" th:text="#{label.pages.users.message}">View logged in users</a>
 		<br />	    
 	    <a th:href="@{/loggedUsersFromSessionRegistry}" th:text="#{label.pages.users.sessionregistry.message}">View logged in users</a>
+	    
+	    <div class="row">
+        <div class="input-group col-md-4">
+            <input class="form-control py-2" type="search" value="search" id="example-search-input">
+            <span class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
 	    
     </div>
 </body>
