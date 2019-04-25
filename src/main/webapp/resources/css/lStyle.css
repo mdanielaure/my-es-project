@@ -1,0 +1,60 @@
+.lWrapper{
+    margin-top:5%;
+}
+
+.lBtnSearch{
+	background-color: #F0C300 !important;
+}
+
+.lBtnSearch:hover{
+	background-color: #FFD700 !important;
+}
+
+.lBtn{
+    margin-top:15px;
+    color:#000 !important;
+  /*   background-color: #f5af02 !important;  */
+  /*   background-color: #FFD700 !important;
+    border-color: #FAB243 !important; */
+    background-color: #F0C300 !important;
+}
+
+.lBtn:hover{
+    background-color: #FFD700 !important; 
+    /* border-color: #FAB243 !important; */
+}
+.lBtn:focus{
+    background-color: #FFD700 !important; 
+    /* border-color: #FAB243 !important; */
+}
+
+.lInput:focus{
+	border-color: #FFD700 !important;
+	box-shadow: none !important;
+}
+
+.lnav{
+	padding-left: 20% !important;
+	padding-right: 20% !important;
+}
+
+.lnav-link{
+	color: rgba(0,0,0,.7) !important;
+}
+.lnav-link:hover{
+	color:  #f5af02 !important;
+	background-color: transparent !important;
+	text-decoration: underline !important;
+}
+
+.lnav-menu{
+	color: #fff !important;
+}
+.lnav-menu:hover{
+	color:  #f5af02 !important;
+}
+
+
+.password-verdict{
+color:#000;
+}
