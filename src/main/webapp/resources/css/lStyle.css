@@ -1,21 +1,24 @@
 .lWrapper{
-    margin-top:5%;
+    margin-top:5% !important;
+}
+
+.ldivisor{
+	border-top:2px solid #F0C300 !important;
 }
 
 .lBtnSearch{
 	background-color: #F0C300 !important;
 }
 
-.lBtnSearch:hover{
+.lBtnSearch:hover .lBtnSearch:focus{
 	background-color: #FFD700 !important;
+	color: #FFF !important;
+	border-color: #FFD700 !important;
 }
 
 .lBtn{
     margin-top:15px;
     color:#000 !important;
-  /*   background-color: #f5af02 !important;  */
-  /*   background-color: #FFD700 !important;
-    border-color: #FAB243 !important; */
     background-color: #F0C300 !important;
 }
 
@@ -25,7 +28,7 @@
 }
 .lBtn:focus{
     background-color: #FFD700 !important; 
-    /* border-color: #FAB243 !important; */
+    border-color: #FFD700 !important;
 }
 
 .lInput:focus{

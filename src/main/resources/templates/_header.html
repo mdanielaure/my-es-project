@@ -1,30 +1,12 @@
-<!-- <div class="header-container"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
- 
-   <div class="site-name">Online Shop</div>
-   
-   <div class="header-bar">
-      <th:block sec:authorize="isAuthenticated()">
-         Hello
-         <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
-         &nbsp;|&nbsp;
-         <a th:href="@{/admin/logout}">Logout</a>
-      </th:block>
-       
-      <th:block sec:authorize="!isAuthenticated()">
-         <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#popUpWindow">Login</a>
-      </th:block>
-   </div>
-      
-</div> -->
-
 <header>
 	<div class="lnav">
 		<ul class="nav justify-content-end">
 		  
 		  <li class="nav-item">
-		    <a class="nav-link lnav-link " href="#">  <i class="fas fa-question-circle"></i> <span th:text="#{header.top.help}">Help</span></a>
+		    <a class="nav-link lnav-link " href="#">  <i class="fa fa-question-circle"></i> <span th:text="#{header.top.help}">Help</span></a>
+		  </li>
+		  <li class="nav-item" sec:authorize="!hasAuthority('READ_PRIVILEGE')">
+		    <a class="nav-link lnav-link" th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">Sign up</a>
 		  </li>
 	      <li class="nav-item" th:if="${#locale.toString() == 'fr'}">
 		    <a class="nav-link lnav-link" href="?lang=en" ><img src="/resources/img/icon_flag_en.png" style="width:auto;"/></a>
@@ -35,31 +17,71 @@
 		</ul>
 		
 	</div>
-		
 	
 	<nav class="navbar navbar-expand-lg navbar-light lnav">
-		  <a class="navbar-brand" href="#">Navbar</a>
+	  
+	  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button> -->
+	  <a class="navbar-brand" href="#">Navbar</a>
+	  <!--<button class="navbar-toggler lBtnSearch" type="button" data-toggle="collapse" data-target="#navbarToggler2" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+	    <span><i class="fa fa-search fa-lg"></i></span>
+	  </button>-->
+	  
+	  <!--<div class="collapse navbar-collapse" id="navbarToggler2" style="padding-top: 0.35%;">-->
+	    <form action ="" class="form-inline">
+	      <div class="input-group" style="color: white;">
+			   <input type="text" class="form-control lInput"placeholder="location">
+			   <input type="text" class="form-control lInput"placeholder="search">
+			   <span class="input-group-append">
+			   		<button type="button" class="btn btn-default lBtnSearch"><i class="fa fa-search fa-lg"></i></button>
+			   </span>
+		  </div>
+	    </form>
+	  <!--</div>-->
+	
+	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	      <li class="nav-item">
+	        <a class="nav-link lnav-link" href="#"><i class="fa fa-shopping-cart fa-lg"></i><span>Card</span></a>
+	      </li>
+	      <li class="nav-item" sec:authorize="!hasAuthority('READ_PRIVILEGE')">
+	        <a class="nav-link lnav-link"  th:href="@{/login}"><i class="fa fa-user fa-lg"></i><span th:text="#{label.form.loginTitle}">Sign in</span></a>
+	      </li>
+	      <li class="nav-item" sec:authorize="hasAuthority('READ_PRIVILEGE')">
+	        <a class="nav-link lnav-link" ><i class="fa fa-user fa-lg"></i><span th:text="${#authentication.getPrincipal().firstName}">User</span></a>
+	      </li>
+	      <li class="nav-item dropdown active" >
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Dropdown
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	          <a class="dropdown-item" href="#">Action</a>
+	          <a class="dropdown-item" href="#">Another action</a>
+	          <div class="dropdown-divider"></div>
+	          <a class="dropdown-item" href="#">Something else here</a>
+	        </div>
+	      </li>
+	    </ul>
+	    
+	  
+	</nav>
+		
+	
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark lnav">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
 		  
-		    <form class="form-inline">
-			  <div class="form-group" style="color: white;">
-			   <input type="text" class="form-control input-lg lInput"placeholder="location">
-			  </div> 
-			  <div class="form-group mx-sm-3">
-			    <input type="text" class="form-control input-lg lInput" placeholder="location">
-			  </div>
-			  <button type="submit" class="btn lBtnSearch btn-lg"><i class="fas fa-search"></i></button>
-			</form>
-		 	
-		 	<div class="collapse navbar-collapse" id="navbarSupportedContent">   
-		    <ul class="navbar-nav mr-auto">
+		  <div class="collapse navbar-collapse" id="navbarToggler1">
+			<ul class="navbar-nav mr-auto">
 		      <li class="nav-item">
-		        <a class="nav-link lnav-link" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span>Card</span></a>
+		        <a class="nav-link lnav-menu" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span>Card</span></a>
 		      </li>
 		      <li class="nav-item">
-			  	<a class="nav-link lnav-link " th:href="@{/login}" th:text="#{label.form.loginTitle}">Sign in</a>
+			  	<a class="nav-link lnav-menu" th:href="@{/login}" th:text="#{label.form.loginTitle}">Sign in</a>
 			  </li>
 			  <li class="nav-item">
-		        <a class="nav-link lnav-link" th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">Sign up</a>
+		        <a class="nav-link lnav-menu" th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">Sign up</a>
 			  </li>
 		      <li class="nav-item dropdown active" >
 		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,66 +97,8 @@
 		      <li class="nav-item">
 		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 		      </li>
-		    </ul>
-			</div>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		    <span class="navbar-toggler-icon"></span>
-		  </button>
-	</nav>
-		
-	
-	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark lnav">
-		<ul class="navbar-nav mr-auto">
-	      <li class="nav-item">
-	        <a class="nav-link lnav-menu" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span>Card</span></a>
-	      </li>
-	      <li class="nav-item">
-		  	<a class="nav-link lnav-menu" th:href="@{/login}" th:text="#{label.form.loginTitle}">Sign in</a>
-		  </li>
-		  <li class="nav-item">
-	        <a class="nav-link lnav-menu" th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">Sign up</a>
-		  </li>
-	      <li class="nav-item dropdown active" >
-	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          Dropdown
-	        </a>
-	        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          <a class="dropdown-item" href="#">Action</a>
-	          <a class="dropdown-item" href="#">Another action</a>
-	          <div class="dropdown-divider"></div>
-	          <a class="dropdown-item" href="#">Something else here</a>
-	        </div>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-	      </li>
-	   	</ul>
-	</nav>
-	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light lnav">
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-	  <a class="navbar-brand" href="#">Navbar</a>
-	
-	  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="#">Link</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-	      </li>
-	    </ul>
-	    <form class="form-inline my-2 my-lg-0">
-	      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-	    </form>
-	  </div>
-	</nav>
+		   	</ul>
+		   	</div>
+		</nav>
 	
 </header>

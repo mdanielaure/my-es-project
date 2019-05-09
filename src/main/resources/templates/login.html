@@ -1,11 +1,10 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/> -->
 <link rel="stylesheet" th:href="@{/resources/css/lStyle.css}">
-<!-- <link rel="stylesheet" th:href="@{/resources/css/bootstrap/css/bootstrap.css}"> -->
 <link rel="stylesheet" th:href="@{/resources/css/fontawesome/css/all.css}">
 
 
@@ -15,7 +14,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- <script src="@{/resources/css/bootstrap/js/bootstrap.min.js}"></script> -->
 <script src="@{/resources/css/fontawesome/css/all.css}"></script>
 
 <script th:inline="javascript">
@@ -54,8 +52,6 @@ label{padding-left:0 !important}
 
 <body>
 
-<th:block th:include="/_header"></th:block>
-
 <div th:if="${param.message != null}" class="alert alert-info" th:text="${param.message[0]}">message</div>
 
 
@@ -65,7 +61,7 @@ label{padding-left:0 !important}
     <div class="row lWrapper">
         <form class="col-md-6 offset-md-3" name='f' action="login" method='POST' onsubmit="return validate();">
             <h3 class="title" th:text="#{label.form.loginTitle}">Please sign in</h3>
-            <hr class="divisor">
+            <hr class="divisor ldivisor">
             <div class="form-group">
                 <input type="email" class="form-control lInput" name='username' aria-describedby="emailHelp" th:placeholder="#{label.form.loginEmail}" >
             </div>
