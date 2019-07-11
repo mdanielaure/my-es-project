@@ -39,6 +39,8 @@
 .lnav{
 	padding-left: 20% !important;
 	padding-right: 20% !important;
+	padding-top: 0em;
+	padding-bottom: 0em;
 }
 
 .lnav-link{
@@ -53,8 +55,11 @@
 .lnav-menu{
 	color: #fff !important;
 }
-.lnav-menu:hover{
+
+
+.lnav-menu:hover {
 	color:  #f5af02 !important;
+	border-bottom: 3px solid #f5af02;
 }
 
 

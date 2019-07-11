@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark lnav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler2" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarToggler2">
+  	<div>
+  		<a class="nav-link lnav-menu" th:href="@{/home.html}" th:text="#{label.pages.home.title}">home</a>
+  	</div>
+  	<div class="dropdown">
+  		<a class="nav-link lnav-menu" href="#" id="navbarMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span>Billetterie</span></a>
+  		<div class="dropdown-menu" aria-labelledby="navbarMenuDropdown">
+         <th:block th:include="/_header"></th:block>
+        </div>
+  	</div>
+  	<div>
+  		<a class="nav-link lnav-menu" href="#"> <span>Voyages</span></a>
+  	</div>
+  	<div>
+  		<a class="nav-link lnav-menu" href="#"> <span>Shopping</span></a>
+  	</div>
+	<!-- <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link lnav-menu" href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> <span>Card</span></a>
+      </li>
+      <li class="nav-item">
+	  	<a class="nav-link lnav-menu" th:href="@{/login}" th:text="#{label.form.loginTitle}">Sign in</a>
+	  </li>
+	  <li class="nav-item">
+        <a class="nav-link lnav-menu" th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">Sign up</a>
+	  </li>
+      <li class="nav-item dropdown active" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+   	</ul> -->
+   	</div>
+</nav>
