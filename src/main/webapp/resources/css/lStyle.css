@@ -66,3 +66,41 @@
 .password-verdict{
 color:#000;
 }
+
+
+
+
+
+
+
+
+/**************/
+.dropdown-content {
+  display: none; 
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 60%;
+  left: 20%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  min-width: 70rem;
+  
+}
+
+.dropdown-content .header {
+  background: red;
+  padding: 16px;
+  color: white;
+}
+
+.dropdown:hover #navbarMenuDropdown .dropdown-content {
+  display: block;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .dropdown-content {
+    width: 100%;
+    height: auto;
+  }
+}
