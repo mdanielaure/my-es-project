@@ -43,19 +43,6 @@
 	padding-bottom: 0em;
 }
 
-.collapse-menu{
-	padding-left: 20% !important;
-	padding-right: 20% !important;
-	padding-top: 0em;
-	padding-bottom: 0em;
-	position: absolute;
-}
-
-.lnav-menu:hover #collapseExample {
-  display: block;
-	
-}
-
 .lnav-link{
 	color: rgba(0,0,0,.7) !important;
 }
@@ -73,23 +60,6 @@
 .lnav-menu:hover {
 	color:  #f5af02 !important;
 	border-bottom: 3px solid #f5af02;
-}
-
-.dropdown:hover>.dropdown-menu {
-  display: block;
-	
-}
-
-.dropdown-menu1 {
-	
-}
-
-.dropdown-menu2 {
-  width: 100% !important;
-  min-width: 60rem;
-  padding-left: 20% !important;
-  padding-right: 20% !important;
-	
 }
 
 

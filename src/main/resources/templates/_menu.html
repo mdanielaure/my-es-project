@@ -8,16 +8,13 @@
   		<a class="nav-link lnav-menu" th:href="@{/home.html}" th:text="#{label.pages.home.title}">home</a>
   	</div>
   	<div class="dropdown">
-  		<a class="nav-link lnav-menu" href="#" id="navbarMenuDropdown" role="button" > <span>Billetterie</span></a>
-  		<div class="dropdown-content">
+  		<a class="nav-link lnav-menu" href="#" id="navbarMenuDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span>Billetterie</span></a>
+  		<div class="dropdown-menu" aria-labelledby="navbarMenuDropdown">
          <th:block th:include="/_header"></th:block>
-		</div>
+        </div>
   	</div>
   	<div>
-  		<a class="nav-link lnav-menu" data-toggle="collapse" role="button" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> <span>Voyages</span></a>
-  		 <!-- <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-		    Link with href
-		  </a> -->
+  		<a class="nav-link lnav-menu" href="#"> <span>Voyages</span></a>
   	</div>
   	<div>
   		<a class="nav-link lnav-menu" href="#"> <span>Shopping</span></a>
@@ -48,10 +45,3 @@
       </li>
    	</ul> -->
    	</div>
-</nav>
-
-<div class="collapse collapse-menu" id="collapseExample">
-  <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-  </div>
-</div>

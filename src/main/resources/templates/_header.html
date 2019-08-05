@@ -65,7 +65,7 @@
 		  <div sec:authorize="hasAuthority('READ_PRIVILEGE')" class="dropdown" >
 		  	<a class="nav-link dropdown-toggle lnav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		  	<i class="fa fa-user fa-lg"></i><span th:text="${#authentication.getPrincipal().firstName}">User</span></a>
-		  	<div class="dropdown-menu dropdown-menu1" aria-labelledby="navbarDropdown">
+		  	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 	          <a class="dropdown-item" href="#">Action</a>
 	          <a class="dropdown-item" href="#">Another action</a>
 	          <div class="dropdown-divider"></div>
