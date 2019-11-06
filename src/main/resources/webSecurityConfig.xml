@@ -21,6 +21,7 @@
         <intercept-url pattern="/forgetPassword*" access="permitAll"/>
         <intercept-url pattern="/user/resetPassword*" access="permitAll"/>
         <intercept-url pattern="/user/changePassword*" access="permitAll"/>
+        <intercept-url pattern="/home*" access="permitAll"/>
         <intercept-url pattern="/updatePassword*" access="isAuthenticated()"/>
         <intercept-url pattern="/user/savePassword*" access="isAuthenticated()"/>
 
