@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
@@ -34,8 +35,9 @@
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 		
-	<script th:src="@{/resources/pwstrength.js}"></script>
+	<script src="/resources/js/pwstrength.js"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+	
 		
 </head>
 
@@ -56,29 +58,31 @@
 							</div>
 							<div class="form-group">
 								<input class="input" name="firstName" value="" required="required" th:placeholder="#{label.user.firstName}">
-								<span id="firstNameError" class="alert alert-danger col-md-4" style="display:none"></span>
+								<div id="firstNameError" class="alert alert-danger" style="display:none"></div>
 							</div>
 							<div class="form-group">
 								<input class="input" name="lastName" value="" required="required" th:placeholder="#{label.user.lastName}">
-								<span id="lastNameError" class="alert alert-danger col-md-4" style="display:none"></span>
+								<div id="lastNameError" class="alert alert-danger" style="display:none"></div>
 							</div>
 							<div class="form-group">
 								<input class="input" type="email" name="email" value="" required="required" th:placeholder="#{label.user.email}">
-								<span id="emailError" class="alert alert-danger col-md-4" style="display:none"></span>
+								<div id="emailError" class="alert alert-danger" style="display:none"></div>
 							</div>
 							<div class="form-group">
 								<input class="input" id="password" name="password" value="" type="password" required="required" th:placeholder="#{label.user.password}">
-								<span id="passwordError" class="alert alert-danger col-md-4" style="display:none"></span>
+								<div id="passwordError" class="alert alert-danger" style="display:none"></div>
 							</div>
 							<div class="form-group">
 								<input class="input" id="matchPassword" name="matchingPassword" value="" type="password" required="required" th:placeholder="#{label.user.confirmPass}">
-								<span id="globalError" class="alert alert-danger" style="display:none"></span>
+								<div id="globalError"  class="alert alert-danger" style="display:none">
+									
+								</div>
 							</div>
 							
 							<div class="form-group">
 				                <!-- to enable captcha uncomment the keys in application.properties -->
 				                <div class="g-recaptcha" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
-				             	<span id="captchaError" class="alert alert-danger col-sm-4" style="display:none"></span>
+				             	<div id="captchaError" class="alert alert-danger" style="display:none"></div>
 				             </div>
 				             
 				             <div class="form-group">
@@ -96,7 +100,7 @@
 						</div>
 					</div>
 
-					<!-- <div class="col-md-6">
+					<div class="col-md-6">
 						<div class="banner banner-1" style="margin-top: 50px;">
 							<img src="/resources/img/banner13.jpg" alt="">
 							<div class="banner-caption text-center">
@@ -104,67 +108,11 @@
 								<button class="primary-btn">Shop Now</button>
 							</div>
 						</div>
-					</div> -->
+					</div>
 
 				</form>
 			</div>
 			<!-- /row -->
-			
-			
-			<div class="lWrapper">
-        <form action="/"  method='POST' enctype="utf8">
-        
-        	<div class="form-group row">
-         		<span class="col-sm-5 offset-md-3"><h3 th:text="#{label.form.registrationTitle}">Sign up</h3></span>
-         	</div>
-         	
-         	<div class="form-group row">
-         		<span class="col-sm-5 offset-md-3"><hr class="divisor ldivisor"></span>
-         	</div>
-            
-            <!-- <div class="form-group row">
-            	<span class="col-sm-5 offset-md-3"><input class="form-control input-lg lInput" name="firstName" value="" required="required" th:placeholder="#{label.user.firstName}" /></span>
-            	<span id="firstNameError" class="alert alert-danger col-sm-4" style="display:none"></span>
-            </div> -->
-            
-            <!-- <div class="form-group row">
-            	<span class="col-sm-5 offset-md-3"><input class="form-control input-lg lInput" name="lastName" value="" required="required" th:placeholder="#{label.user.lastName}"/></span>
-            	<span id="lastNameError" class="alert alert-danger col-sm-4" style="display:none"></span>
-            </div> -->
-            
-            <!-- <div class="form-group row">
-                <span class="col-sm-5 offset-md-3"><input type="email" class="form-control input-lg lInput" name="email" value="" required="required" th:placeholder="#{label.user.email}"/></span>  
-                <span id="emailError" class="alert alert-danger col-sm-4" style="display:none"></span>                 
-            </div> -->
-            
-            <!-- <div class="form-group row">
-                <span class="col-sm-5 offset-md-3"><input id="password" class="form-control input-lg lInput" name="password" value="" type="password" required="required" th:placeholder="#{label.user.password}"/></span>
-             	<span id="passwordError" class="alert alert-danger  col-sm-4" style="display:none"></span>
-             </div> -->
-             
-             <!-- <div class="form-group row">
-                <span class="col-sm-5 offset-md-3"><input id="matchPassword" class="form-control input-lg lInput" name="matchingPassword" value="" type="password" required="required" th:placeholder="#{label.user.confirmPass}"/></span>
-             	<span id="globalError" class="alert alert-danger col-sm-4" style="display:none"></span>
-             </div> -->
-
-             <!-- <div class="form-group row">
-                to enable captcha uncomment the keys in application.properties
-                <div class="g-recaptcha col-sm-5 offset-md-3" th:attr="data-sitekey=${@captchaService.getReCaptchaSite()}" data-callback="onReCaptchaSuccess" data-expired-callback="onReCaptchaExpired"></div>
-             	<span id="captchaError" class="alert alert-danger col-sm-4" style="display:none"></span>
-             </div> -->
-            
-             <!-- <div class="form-group row">
-                <span class="col-sm-5 offset-md-3"><span th:text="#{label.form.registrationAcceptTerms1}"></span>
-                <a href="#" th:text="#{label.form.registrationAcceptTerms2}"></a>
-                <span th:text="#{label.form.registrationAcceptTerms3}"></span>
-                <a href="#" th:text="#{label.form.registrationAcceptTerms4}"></a></span>
-             </div> -->
-             
-             <button type="submit" class="btn btn-lg btn-block lBtn col-sm-5 offset-md-3"  th:text="#{label.form.registrationSubmit}">Sign up</button>
-      
-        </form>
-    </div>
-			
 		</div>
 		<!-- /container -->
 	</div>

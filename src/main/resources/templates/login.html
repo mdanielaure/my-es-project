@@ -62,12 +62,12 @@
 	<!-- section -->
 	<div class="section">
 	
-	<div th:if="${param.message != null}" class="alert alert-info" th:text="${param.message[0]}">message</div>
-
-	<div th:if="${param.error != null}" class="alert alert-danger" th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}">error</div>
-		
 		<!-- container -->
 		<div class="container">
+			
+			<div th:if="${param.message != null}" class="alert alert-info" th:text="${param.message[0]}">message</div>
+
+			<div th:if="${param.error != null}" class="alert alert-danger" th:text="${session[SPRING_SECURITY_LAST_EXCEPTION]}">error</div>
 			<!-- row -->
 			<div class="row">
 				<form id="checkout-form" class="clearfix" name='f' action="login" method='POST' onsubmit="return validate();">
