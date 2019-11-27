@@ -12,12 +12,12 @@ import org.springframework.stereotype.Component;
 
 import com.laattre.persistence.model.User;
 import com.laattre.registration.OnRegistrationCompleteEvent;
-import com.laattre.service.IUserService;
+import com.laattre.service.UserService;
 
 @Component
 public class RegistrationListener implements ApplicationListener<OnRegistrationCompleteEvent> {
     @Autowired
-    private IUserService service;
+    private UserService service;
 
     @Autowired
     private MessageSource messages;

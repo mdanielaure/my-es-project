@@ -34,7 +34,7 @@ import com.laattre.persistence.model.PasswordResetToken;
 import com.laattre.persistence.model.User;
 import com.laattre.persistence.model.VerificationToken;
 import com.laattre.registration.OnRegistrationCompleteEvent;
-import com.laattre.service.IUserService;
+import com.laattre.service.UserService;
 import com.laattre.web.dto.UserDto;
 
 @Controller
@@ -43,7 +43,7 @@ public class OldRegistrationController {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Autowired
     private MessageSource messages;

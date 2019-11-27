@@ -29,8 +29,8 @@ import com.laattre.persistence.model.Privilege;
 import com.laattre.persistence.model.Role;
 import com.laattre.persistence.model.User;
 import com.laattre.persistence.model.VerificationToken;
-import com.laattre.service.IUserService;
 import com.laattre.service.UserService;
+import com.laattre.service.impl.UserServiceImpl;
 import com.laattre.spring.LoginNotificationConfig;
 import com.laattre.spring.ServiceConfig;
 import com.laattre.spring.TestDbConfig;
@@ -44,7 +44,7 @@ import com.laattre.web.error.UserAlreadyExistException;
 public class UserServiceIntegrationTest {
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @Autowired
     private UserRepository userRepository;
@@ -211,7 +211,7 @@ public class UserServiceIntegrationTest {
         userService.createVerificationTokenForUser(user, token);
         final long userId = user.getId();
         final String token_status = userService.validateVerificationToken(token);
-        assertEquals(token_status, UserService.TOKEN_VALID);
+        assertEquals(token_status, UserServiceImpl.TOKEN_VALID);
         user = userService.getUserByID(userId).get();
         assertTrue(user.isEnabled());
     }
@@ -224,7 +224,7 @@ public class UserServiceIntegrationTest {
         userService.createVerificationTokenForUser(user, token);
         userService.getVerificationToken(token).getId();
         final String token_status = userService.validateVerificationToken(invalid_token);
-        token_status.equals(UserService.TOKEN_INVALID);
+        token_status.equals(UserServiceImpl.TOKEN_INVALID);
     }
 
     @Test
@@ -238,7 +238,7 @@ public class UserServiceIntegrationTest {
         tokenRepository.saveAndFlush(verificationToken);
         final String token_status = userService.validateVerificationToken(token);
         assertNotNull(token_status);
-        token_status.equals(UserService.TOKEN_EXPIRED);
+        token_status.equals(UserServiceImpl.TOKEN_EXPIRED);
     }
 
     //

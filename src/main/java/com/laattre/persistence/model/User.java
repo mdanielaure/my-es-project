@@ -1,7 +1,9 @@
 package com.laattre.persistence.model;
 
 import java.util.Collection;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,9 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.jboss.aerogear.security.otp.api.Base32;
+
+import com.laattre.persistence.model.UserShipping;
+import com.laattre.persistence.model.ShoppingCart;
+import com.laattre.persistence.model.UserPayment;
+import com.laattre.persistence.model.Role;
 
 @Entity
 @Table(name = "user_account")
@@ -38,12 +47,27 @@ public class User {
     private boolean isUsing2FA;
 
     private String secret;
+    private String phone;
 
     //
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+    
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private ShoppingCart shoppingCart;
+	
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserShipping> userShippingList;
+	
+	
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<UserPayment> userPaymentList;
+	
+    @OneToMany(mappedBy = "user")
+    private List<Order> orderList;
+    
 
     public User() {
         super();
@@ -98,6 +122,39 @@ public class User {
     public void setRoles(final Collection<Role> roles) {
         this.roles = roles;
     }
+    
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
+
+    public List<UserShipping> getUserShippingList() {
+        return userShippingList;
+    }
+
+    public void setUserShippingList(List<UserShipping> userShippingList) {
+        this.userShippingList = userShippingList;
+    }
+
+    public List<UserPayment> getUserPaymentList() {
+        return userPaymentList;
+    }
+
+    public void setUserPaymentList(List<UserPayment> userPaymentList) {
+        this.userPaymentList = userPaymentList;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
 
     public boolean isEnabled() {
         return enabled;
@@ -121,6 +178,15 @@ public class User {
 
     public void setSecret(String secret) {
         this.secret = secret;
+    }
+    
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

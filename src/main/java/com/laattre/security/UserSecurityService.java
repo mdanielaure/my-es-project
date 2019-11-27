@@ -6,6 +6,7 @@ import java.util.Calendar;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -41,6 +42,13 @@ public class UserSecurityService implements ISecurityUserService {
         final Authentication auth = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList(new SimpleGrantedAuthority("CHANGE_PASSWORD_PRIVILEGE")));
         SecurityContextHolder.getContext().setAuthentication(auth);
         return null;
+    }
+    
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @Transactional
+    @Override
+    public User getCurrentUser() {
+        return (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.laattre.security.ActiveUserStore;
-import com.laattre.service.IUserService;
+import com.laattre.service.UserService;
 
 @Controller
 public class UserController {
@@ -18,7 +18,7 @@ public class UserController {
     ActiveUserStore activeUserStore;
 
     @Autowired
-    IUserService userService;
+    UserService userService;
 
     @RequestMapping(value = "/loggedUsers", method = RequestMethod.GET)
     public String getLoggedUsers(final Locale locale, final Model model) {

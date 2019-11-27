@@ -65,6 +65,9 @@ public class MvcConfig implements WebMvcConfigurer {
         registry.addViewController("/travels.html");
         registry.addViewController("/card.html");
         registry.addViewController("/checkout.html");
+        registry.addViewController("/products.html");
+        registry.addViewController("/productDetails.html");
+        registry.addViewController("/addProduct.html");
     }
 
     @Override
