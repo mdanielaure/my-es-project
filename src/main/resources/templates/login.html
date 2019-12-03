@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
@@ -12,20 +13,20 @@
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
 
 	<!-- Bootstrap -->
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link type="text/css" rel="stylesheet" th:href="@{/resources/static/css/bootstrap.min.css}"/>
 
 	<!-- Slick -->
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/slick.css}" />
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/slick-theme.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/resources/static/css/slick.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/resources/static/css/slick-theme.css}" />
 
 	<!-- nouislider -->
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/nouislider.min.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/resources/static/css/nouislider.min.css}" />
 
 	<!-- Font Awesome Icon -->
-	<link rel="stylesheet" th:href="@{/resources/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/resources/static/css/font-awesome.min.css}" />
 
 	<!-- Custom stlylesheet -->
-	<link type="text/css" rel="stylesheet" th:href="@{/resources/css/style.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/resources/static/css/style.css}" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -101,7 +102,7 @@
 
 					<div class="col-md-6">
 					<div class="banner banner-1" style="margin-top: 50px;">
-						<img src="/resources/img/banner13.jpg" alt="">
+						<img src="/resources/static/img/banner13.jpg" alt="">
 						<div class="banner-caption text-center">
 							<h1 class="primary-color">HOT DEAL<br><span class="white-color font-weak">Up to 50% OFF</span></h1>
 							<button class="primary-btn">Shop Now</button>
@@ -118,15 +119,9 @@
 	<!-- /section -->
 	
 
-	<th:block th:include="/_footer"></th:block>
-
-	<!-- jQuery Plugins -->
-	<script src="/resources/js/jquery.min.js"></script>
-	<script src="/resources/js/bootstrap.min.js"></script>
-	<script src="/resources/js/slick.min.js"></script>
-	<script src="/resources/js/nouislider.min.js"></script>
-	<script src="/resources/js/jquery.zoom.min.js"></script>
-	<script src="/resources/js/main.js"></script>
+	<th:block th:replace="common/header :: footer"></th:block>
+	
+	<th:block th:replace="common/header :: body-bottom-scripts"></th:block>
 </body>
 
 </html>

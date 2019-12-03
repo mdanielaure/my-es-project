@@ -3,6 +3,9 @@ package com.laattre.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.laattre.persistence.model.Product;
 
 public interface ProductService {
@@ -14,4 +17,6 @@ public interface ProductService {
 	Optional<Product> findOne(Long id);
 	
 	void removeOne(Long id);
+	
+	Page<Product> findPaginated(Pageable pageable);
 }

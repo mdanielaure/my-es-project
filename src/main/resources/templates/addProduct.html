@@ -109,9 +109,9 @@
 							<div class="form-group">
 								<label class="control-label" for="listPrice">List Price</label>
 								<div class="input-group">
-									<span class="input-group-addon">&euro;</span> <input
-										th:value="${product.listPrice}" type="number" name="listPrice" step="0.01"
-										class="form-control" id="listPrice" placeholder="List Price" />
+									<span class="input-group-addon">&euro;</span> 
+									<input th:value="${product.listPrice}" type="number" name="listPrice" step="0.01"
+										class="form-control" id="listPrice" placeholder="List Price" required="required"/>
 								</div>
 							</div>
 		
@@ -119,9 +119,9 @@
 							<div class="form-group">
 								<label class="control-label" for="ourPrice">Our Price</label>
 								<div class="input-group">
-									<span class="input-group-addon">&euro;</span> <input
-										th:value="${product.ourPrice}" type="number" name="ourPrice" step="0.01"
-										class="form-control" id="ourPrice" placeholder="Our Price" />
+									<span class="input-group-addon">&euro;</span> 
+									<input th:value="${product.ourPrice}" type="number" name="ourPrice" step="0.01"
+										class="form-control" id="ourPrice" placeholder="Our Price" required="required"/>
 								</div>
 							</div>
 		
@@ -166,6 +166,7 @@
 								<div class="pull-right">
 									<button type="submit" class="primary-btn">Add Product</button>
 									<a class="primary-btn" th:href="@{/}">Cancel</a>
+									<a class="primary-btn" th:href="@{/product/productList}">Product List</a>
 								</div>
 							</div>
 						</div>
