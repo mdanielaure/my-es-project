@@ -3,6 +3,8 @@ package com.laattre.web.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -81,8 +83,10 @@ public class ProductController {
 		try {
 			byte[] bytes = productImage.getBytes();
 			String name = product.getId() + ".png";
+			String fileLocation = new File("resources\\static\\image\\product").getAbsolutePath() + "\\" + name;
+			System.out.println("fileLocation " + request.getSession().getServletContext().getRealPath("/WEB-INF/"));
 			BufferedOutputStream stream = new BufferedOutputStream(
-					new FileOutputStream(new File("src/main/resources/static/image/product/" + name)));
+					new FileOutputStream(new File(request.getSession().getServletContext().getRealPath("/WEB-INF/") + "\\resources\\static\\image\\product\\" + name)));
 			stream.write(bytes);
 			stream.close();
 		} catch (Exception e) {
